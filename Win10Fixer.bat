@@ -1298,9 +1298,13 @@ goto :menu1
 :actuallyfinish
 if %benst4-2%==true (
 choice /C yn /M "YOU WILL NOT BE ABLE TO GET WINDOWS STORE BACK! ARE YOU SURE YOU WANT TO DELETE?"
-if errorlevel 2 goto :actuallyfinish1
-if errorlevel 1 echo This is an important test :D
-pause
+if errorlevel 2 goto :menu3
+if errorlevel 1 ( 
+		echo Very well, you have been warned.
+		pause
+		PowerShell -NoProfile -ExecutionPolicy Bypass -Command "Get-AppxPackage *windowsstore* | Remove-AppxPackage"
+		goto :actuallyfinish1
+	)
 )
 
 :actuallyfinish1
