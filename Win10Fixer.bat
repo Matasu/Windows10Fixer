@@ -5,21 +5,6 @@ REM  --> Check for permissions
 >nul 2>&1 "%SYSTEMROOT%\system32\cacls.exe" "%SYSTEMROOT%\system32\config\system"  
 
 REM --> If error flag set, we do not have admin.  
-REM if '%errorlevel%' NEQ '0' (  
-    REM echo Requesting administrative privileges...  
-    REM goto UACPrompt  
-REM ) else ( goto gotAdmin )  
-
-REM :UACPrompt  
-    REM echo Set UAC = CreateObject^("Shell.Application"^) > "%temp%\getadmin.vbs"  
-    REM echo UAC.ShellExecute "%~s0", "", "", "runas", 1 >> "%temp%\getadmin.vbs"
-    REM "%temp%\getadmin.vbs"
-    REM exit /B  
-
-REM :gotAdmin  
-    REM if exist "%temp%\getadmin.vbs" ( del "%temp%\getadmin.vbs" )   
-    REM pushd "%CD%"  
-    REM CD /D "%~dp0"  
 
 
 
