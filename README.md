@@ -23,7 +23,7 @@ The first step is to finalize my GitHub page and finish typing all of these READ
 
 # Licence
 
-All that this is saying is you can do whatever with my code. vvvv
+## All that this is saying is you can do whatever with my code. vvvv
 
 This is free and unencumbered software released into the public domain.
 
