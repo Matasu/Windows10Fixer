@@ -1,25 +1,25 @@
 @echo off
 
 REM Thanks to doogle McPherson from superuser.com
-REM  --> Check for permissions  
->nul 2>&1 "%SYSTEMROOT%\system32\cacls.exe" "%SYSTEMROOT%\system32\config\system"  
+REM  --> Check for permissions
+>nul 2>&1 "%SYSTEMROOT%\system32\cacls.exe" "%SYSTEMROOT%\system32\config\system"
 
-REM --> If error flag set, we do not have admin.  
- if '%errorlevel%' NEQ '0' (  
-     echo Requesting administrative privileges...  
-     goto UACPrompt  
- ) else ( goto gotAdmin )  
+REM --> If error flag set, we do not have admin.
+ if '%errorlevel%' NEQ '0' (
+     echo Requesting administrative privileges...
+     goto UACPrompt
+ ) else ( goto gotAdmin )
 
-:UACPrompt  
-     echo Set UAC = CreateObject^("Shell.Application"^) > "%temp%\getadmin.vbs"  
+:UACPrompt
+     echo Set UAC = CreateObject^("Shell.Application"^) > "%temp%\getadmin.vbs"
      echo UAC.ShellExecute "%~s0", "", "", "runas", 1 >> "%temp%\getadmin.vbs"
      "%temp%\getadmin.vbs"
-     exit /B  
+     exit /B
 
-:gotAdmin  
-     if exist "%temp%\getadmin.vbs" ( del "%temp%\getadmin.vbs" )   
-     pushd "%CD%"  
-     CD /D "%~dp0"  
+:gotAdmin
+     if exist "%temp%\getadmin.vbs" ( del "%temp%\getadmin.vbs" )
+     pushd "%CD%"
+     CD /D "%~dp0"
 
 
 
@@ -176,12 +176,12 @@ set dispt2-4=
 set dispt3-4=
 
 
-title DevWin10fix
+title Win10fix
 
 REM Changes prompt size
 mode con: cols=127 lines=40
 
-REM Beginning of batch file 
+REM Beginning of batch file
 :loopystart
 
 cls
@@ -197,26 +197,26 @@ echo.
 echo.
 echo.
 echo.
-echo _/\\\\____________/\\\\_________________________________________________________________________/\\\\______________           
-echo _\/\\\\\\________/\\\\\\________________________________________________________________________\///\\______________          
-echo  _\/\\\//\\\____/\\\//\\\____________________/\\\_________________________________________________/\\/_______________         
-echo   _\/\\\\///\\\/\\\/_\/\\\__/\\\\\\\\\_____/\\\\\\\\\\\__/\\\\\\\\\_____/\\\\\\\\\\__/\\\____/\\\_\//_____/\\\\\\\\\\_        
-echo   _\/\\\__\///\\\/___\/\\\_\////////\\\___\////\\\////__\////////\\\___\/\\\//////__\/\\\___\/\\\________\/\\\//////__       
-echo     _\/\\\____\///_____\/\\\___/\\\\\\\\\\_____\/\\\________/\\\\\\\\\\__\/\\\\\\\\\\_\/\\\___\/\\\________\/\\\\\\\\\\_      
-echo      _\/\\\_____________\/\\\__/\\\/////\\\_____\/\\\_/\\___/\\\/////\\\__\////////\\\_\/\\\___\/\\\________\////////\\\_     
-echo       _\/\\\_____________\/\\\_\//\\\\\\\\/\\____\//\\\\\___\//\\\\\\\\/\\__/\\\\\\\\\\_\//\\\\\\\\\__________/\\\\\\\\\\_    
-echo        _\///______________\///___\////////\//______\/////_____\////////\//__\//////////___\/////////__________\//////////__                     
+echo _/\\\\____________/\\\\_________________________________________________________________________/\\\\______________
+echo _\/\\\\\\________/\\\\\\________________________________________________________________________\///\\______________
+echo  _\/\\\//\\\____/\\\//\\\____________________/\\\_________________________________________________/\\/_______________
+echo   _\/\\\\///\\\/\\\/_\/\\\__/\\\\\\\\\_____/\\\\\\\\\\\__/\\\\\\\\\_____/\\\\\\\\\\__/\\\____/\\\_\//_____/\\\\\\\\\\_
+echo   _\/\\\__\///\\\/___\/\\\_\////////\\\___\////\\\////__\////////\\\___\/\\\//////__\/\\\___\/\\\________\/\\\//////__
+echo     _\/\\\____\///_____\/\\\___/\\\\\\\\\\_____\/\\\________/\\\\\\\\\\__\/\\\\\\\\\\_\/\\\___\/\\\________\/\\\\\\\\\\_
+echo      _\/\\\_____________\/\\\__/\\\/////\\\_____\/\\\_/\\___/\\\/////\\\__\////////\\\_\/\\\___\/\\\________\////////\\\_
+echo       _\/\\\_____________\/\\\_\//\\\\\\\\/\\____\//\\\\\___\//\\\\\\\\/\\__/\\\\\\\\\\_\//\\\\\\\\\__________/\\\\\\\\\\_
+echo        _\///______________\///___\////////\//______\/////_____\////////\//__\//////////___\/////////__________\//////////__
 echo.
 echo.
 
-echo __/\\\______________/\\\__________________________/\\\_____/\\\\\\\_______________/\\\\\\\\\\\\\\\_____________________        
-echo _\/\\\_____________\/\\\______________________/\\\\\\\___/\\\/////\\\____________\/\\\///////////______________________       
-echo  _\/\\\_____________\/\\\__/\\\_______________\/////\\\__/\\\____\//\\\___________\/\\\______________/\\\_______________      
-echo   _\//\\\____/\\\____/\\\__\///___/\\/\\\\\\_______\/\\\_\/\\\_____\/\\\___________\/\\\\\\\\\\\_____\///___/\\\____/\\\_     
-echo    __\//\\\__/\\\\\__/\\\____/\\\_\/\\\////\\\______\/\\\_\/\\\_____\/\\\___________\/\\\///////_______/\\\_\///\\\/\\\/__    
-echo     ___\//\\\/\\\/\\\/\\\____\/\\\_\/\\\__\//\\\_____\/\\\_\/\\\_____\/\\\___________\/\\\_____________\/\\\___\///\\\/____   
-echo      ____\//\\\\\\//\\\\\_____\/\\\_\/\\\___\/\\\_____\/\\\_\//\\\____/\\\____________\/\\\_____________\/\\\____/\\\/\\\___  
-echo       _____\//\\\__\//\\\______\/\\\_\/\\\___\/\\\_____\/\\\__\///\\\\\\\/_____________\/\\\_____________\/\\\__/\\\/\///\\\_ 
+echo __/\\\______________/\\\__________________________/\\\_____/\\\\\\\_______________/\\\\\\\\\\\\\\\_____________________
+echo _\/\\\_____________\/\\\______________________/\\\\\\\___/\\\/////\\\____________\/\\\///////////______________________
+echo  _\/\\\_____________\/\\\__/\\\_______________\/////\\\__/\\\____\//\\\___________\/\\\______________/\\\_______________
+echo   _\//\\\____/\\\____/\\\__\///___/\\/\\\\\\_______\/\\\_\/\\\_____\/\\\___________\/\\\\\\\\\\\_____\///___/\\\____/\\\_
+echo    __\//\\\__/\\\\\__/\\\____/\\\_\/\\\////\\\______\/\\\_\/\\\_____\/\\\___________\/\\\///////_______/\\\_\///\\\/\\\/__
+echo     ___\//\\\/\\\/\\\/\\\____\/\\\_\/\\\__\//\\\_____\/\\\_\/\\\_____\/\\\___________\/\\\_____________\/\\\___\///\\\/____
+echo      ____\//\\\\\\//\\\\\_____\/\\\_\/\\\___\/\\\_____\/\\\_\//\\\____/\\\____________\/\\\_____________\/\\\____/\\\/\\\___
+echo       _____\//\\\__\//\\\______\/\\\_\/\\\___\/\\\_____\/\\\__\///\\\\\\\/_____________\/\\\_____________\/\\\__/\\\/\///\\\_
 echo        ______\///____\///_______\///__\///____\///______\///_____\///////_______________\///______________\///__\///____\///__
 
 
@@ -257,30 +257,30 @@ REM Main menu for choosing section of fixes
 title Win10fix
 color %colormesilly%
 mode con: cols=108 lines=40
-cls  
+cls
 echo.
 echo    	          __________________________________________________________________________
 echo    	         [                                                                          ]
 echo    	         [                                                                          ]
 echo    	         [   [1] Uninstall Unwanted Apps                                            ]
-echo    	         [    		                                                            ]   
+echo    	         [    		                                                            ]
 echo    	         [   [2] Remove/Hide Cortana                                                ]
-echo    	         [                                                                          ] 
+echo    	         [                                                                          ]
 echo    	         [   [3] Change Unwanted Services                                           ]
-echo    	         [                                                                          ] 
+echo    	         [                                                                          ]
 echo    	         [   [4] Block Windows Telemetry                                            ]
-echo    	         [                                                                          ] 
+echo    	         [                                                                          ]
 echo    	         [   [5] Optimize User Interface                                            ]
-echo    	         [                                                                          ] 
+echo    	         [                                                                          ]
 echo    	         [   [6] Quit                                                               ]
 echo    	         [                                                                          ]
-echo    	         [__________________________________________________________________________] 
+echo    	         [__________________________________________________________________________]
 
 echo.
 echo.
 echo.
 set choicebaby=""
-set /p choicebaby=Please choose what you want to change 1-6:  
+set /p choicebaby=Please choose what you want to change 1-6:
 ECHO.
 if "%choicebaby%"==" " goto :loopymenu
 if [%choicebaby%]==[6] goto :lolexit
@@ -324,23 +324,23 @@ pause
 
 :menu1
 cls
-echo 					    Default Windows 10 Apps 
+echo 					    Default Windows 10 Apps
 echo.
 echo.
-echo ###########################################################################################################   				                   
-echo 				           R) Uninstall Recommended          
-  				                                               
-echo   		     		                 %choosey1% 1) 3D Builder                
-echo                                                  %choosey2% 2) App Connector                    
-echo                                                  %choosey3% 3) Bing Finance                
-echo                                                  %choosey4% 4) Bing News                  
-echo                                                  %choosey5% 5) Bing Sports                 
-echo                                                  %choosey6% 6) Fresh Paint                  
-echo                                                  %choosey7% 7) Get Started                  
-echo                                                  %choosey8% 8) Microsoft Office Hub                  
+echo ###########################################################################################################
+echo 				           R) Uninstall Recommended
+
+echo   		     		                 %choosey1% 1) 3D Builder
+echo                                                  %choosey2% 2) App Connector
+echo                                                  %choosey3% 3) Bing Finance
+echo                                                  %choosey4% 4) Bing News
+echo                                                  %choosey5% 5) Bing Sports
+echo                                                  %choosey6% 6) Fresh Paint
+echo                                                  %choosey7% 7) Get Started
+echo                                                  %choosey8% 8) Microsoft Office Hub
 echo                                                  %choosey9% 9) Solitaire Collection
 echo.
-echo                                A) Previous Page      Q)Exit       D) Next page             				                                                       
+echo                                A) Previous Page      Q)Exit       D) Next page
 echo                                                     F) Finish
 echo 															                                              (1/5)
 echo ###########################################################################################################
@@ -351,7 +351,7 @@ if "%deletewhat%"==" " goto :menu1
 if [%deletewhat%]==[F] goto :finish
 if [%deletewhat%]==[f] goto :finish
 if [%deletewhat%]==[R] goto :recommended
-if [%deletewhat%]==[r] goto :recommended 
+if [%deletewhat%]==[r] goto :recommended
 if [%deletewhat%]==[1] goto :del1
 if [%deletewhat%]==[2] goto :del2
 if [%deletewhat%]==[3] goto :del3
@@ -381,7 +381,7 @@ goto :finishmenu
 goto :actuallyrecommend
 
 :delq
-choice /C yn /M "Quitting will not save your progress. Are you sure you want to quit?" 
+choice /C yn /M "Quitting will not save your progress. Are you sure you want to quit?"
 if ERRORLEVEL 2 goto :menu1
 if ERRORLEVEL 1 goto :loopymenu
 goto :menu1
@@ -429,7 +429,7 @@ goto :menu2
 	set benst3=true
 	set choosey3=[*]
 	goto :menu1
-	
+
 :del4
 	if %benst4%==true (
 		cls
@@ -453,7 +453,7 @@ goto :menu2
 	set benst5=true
 	set choosey5=[*]
 	goto :menu1
-	
+
 :del6
 	if %benst6%==true (
 		cls
@@ -489,7 +489,7 @@ goto :menu2
 	set benst8=true
 	set choosey8=[*]
 	goto :menu1
-	
+
 :del9
 	if %benst9%==true (
 		cls
@@ -502,29 +502,29 @@ goto :menu2
 	set choosey9=[*]
 	goto :menu1
 
-	
-	
-	
-	
+
+
+
+
 :menu2
 cls
-echo 					    Default Windows 10 Apps 
+echo 					    Default Windows 10 Apps
 echo.
 echo.
-echo ###########################################################################################################   				                   
-echo 				           R) Uninstall Recommended          
-  				                                               
-echo   		     		                 %choosey1-1% 1) Stickynotes                 
-echo                                                  %choosey2-1% 2) Onenote                  
+echo ###########################################################################################################
+echo 				           R) Uninstall Recommended
+
+echo   		     		                 %choosey1-1% 1) Stickynotes
+echo                                                  %choosey2-1% 2) Onenote
 echo                                                  %choosey3-1% 3) OneConnect
-echo                                                  %choosey4-1% 4) People                  
-echo                                                  %choosey5-1% 5) Skype App                  
-echo                                                  %choosey6-1% 6) Photos                  
-echo                                                  %choosey7-1% 7) Alarm                  
-echo                                                  %choosey8-1% 8) Calculator                  
+echo                                                  %choosey4-1% 4) People
+echo                                                  %choosey5-1% 5) Skype App
+echo                                                  %choosey6-1% 6) Photos
+echo                                                  %choosey7-1% 7) Alarm
+echo                                                  %choosey8-1% 8) Calculator
 echo                                                  %choosey9-1% 9) Camera
 echo.
-echo                                A) Previous Page      Q)Exit       D) Next page             				                                                       
+echo                                A) Previous Page      Q)Exit       D) Next page
 echo                                                     F) Finish
 echo 															                                              (2/5)
 echo ###########################################################################################################
@@ -536,7 +536,7 @@ if "%deletewhat%"==" " goto :menu2
 if [%deletewhat%]==[F] goto :finish
 if [%deletewhat%]==[f] goto :finish
 if [%deletewhat%]==[R] goto :recommended
-if [%deletewhat%]==[r] goto :recommended 
+if [%deletewhat%]==[r] goto :recommended
 if [%deletewhat%]==[1] goto :del1
 if [%deletewhat%]==[2] goto :del2
 if [%deletewhat%]==[3] goto :del3
@@ -566,7 +566,7 @@ goto :finishmenu
 goto :actuallyrecommend
 
 :delq
-choice /C yn /M "Quitting will not save your progress. Are you sure you want to quit?" 
+choice /C yn /M "Quitting will not save your progress. Are you sure you want to quit?"
 if ERRORLEVEL 2 goto :menu1
 if ERRORLEVEL 1 goto :loopymenu
 goto :menu1
@@ -614,7 +614,7 @@ goto :menu3
 	set benst3-1=true
 	set choosey3-1=[*]
 	goto :menu2
-	
+
 :del4
 	if %benst4-1%==true (
 		cls
@@ -638,7 +638,7 @@ goto :menu3
 	set benst5-1=true
 	set choosey5-1=[*]
 	goto :menu2
-	
+
 :del6
 	if %benst6-1%==true (
 		cls
@@ -674,7 +674,7 @@ goto :menu3
 	set benst8-1=true
 	set choosey8-1=[*]
 	goto :menu2
-	
+
 :del9
 	if %benst9-1%==true (
 		cls
@@ -689,26 +689,26 @@ goto :menu3
 
 
 
-	
+
 :menu3
 cls
-echo 					    Default Windows 10 Apps 
+echo 					    Default Windows 10 Apps
 echo.
 echo.
-echo ###########################################################################################################   				                   
-echo 				           R) Uninstall Recommended          
-  				                                               
-echo   		     		                 %choosey1-2% 1) Maps                 
-echo                                                  %choosey2-2% 2) Windows Phone                 
-echo                                                  %choosey3-2% 3) Sound Recorder                  
-echo                                                  %choosey4-2% 4) Windows Store                
-echo                                                  %choosey5-2% 5) Xbox App                
-echo                                                  %choosey6-2% 6) Groove Music                  
-echo                                                  %choosey7-2% 7) Movie Player                  
-echo                                                  %choosey8-2% 8) Communications App                  
+echo ###########################################################################################################
+echo 				           R) Uninstall Recommended
+
+echo   		     		                 %choosey1-2% 1) Maps
+echo                                                  %choosey2-2% 2) Windows Phone
+echo                                                  %choosey3-2% 3) Sound Recorder
+echo                                                  %choosey4-2% 4) Windows Store
+echo                                                  %choosey5-2% 5) Xbox App
+echo                                                  %choosey6-2% 6) Groove Music
+echo                                                  %choosey7-2% 7) Movie Player
+echo                                                  %choosey8-2% 8) Communications App
 echo                                                  %choosey9-2% 9) Minecraft
 echo.
-echo                                A) Previous Page      Q)Exit       D) Next page             				                                                       
+echo                                A) Previous Page      Q)Exit       D) Next page
 echo                                                     F) Finish
 echo 															                                              (3/5)
 echo ###########################################################################################################
@@ -720,7 +720,7 @@ if "%deletewhat%"==" " goto :menu3
 if [%deletewhat%]==[F] goto :finish
 if [%deletewhat%]==[f] goto :finish
 if [%deletewhat%]==[R] goto :recommended
-if [%deletewhat%]==[r] goto :recommended 
+if [%deletewhat%]==[r] goto :recommended
 if [%deletewhat%]==[1] goto :del1
 if [%deletewhat%]==[2] goto :del2
 if [%deletewhat%]==[3] goto :del3
@@ -750,7 +750,7 @@ goto :finishmenu
 goto :actuallyrecommend
 
 :delq
-choice /C yn /M "Quitting will not save your progress. Are you sure you want to quit?" 
+choice /C yn /M "Quitting will not save your progress. Are you sure you want to quit?"
 if ERRORLEVEL 2 goto :menu1
 if ERRORLEVEL 1 goto :loopymenu
 goto :menu3
@@ -798,7 +798,7 @@ goto :menu4
 	set benst3-2=true
 	set choosey3-2=[*]
 	goto :menu3
-	
+
 :del4
 	if %benst4-2%==true (
 		cls
@@ -822,7 +822,7 @@ goto :menu4
 	set benst5-2=true
 	set choosey5-2=[*]
 	goto :menu3
-	
+
 :del6
 	if %benst6-2%==true (
 		cls
@@ -858,7 +858,7 @@ goto :menu4
 	set benst8-2=true
 	set choosey8-2=[*]
 	goto :menu3
-	
+
 :del9
 	if %benst9-2%==true (
 		cls
@@ -870,25 +870,25 @@ goto :menu4
 	set benst9-2=true
 	set choosey9-2=[*]
 	goto :menu3
-	
+
 :menu4
 cls
-echo 					    Default Windows 10 Apps 
+echo 					    Default Windows 10 Apps
 echo.
 echo.
-echo ###########################################################################################################   				                   
-echo 				           R) Uninstall Recommended          
-echo   		     		                 %choosey1-3% 1) Network Speed Test                 
-echo                                                  %choosey2-3% 2) CommsPhone                  
-echo                                                  %choosey3-3% 3) Conetivity Store                  
-echo                                                  %choosey4-3% 4) Messaging App                  
-echo                                                  %choosey5-3% 5) Microsoft Office Sway                  
+echo ###########################################################################################################
+echo 				           R) Uninstall Recommended
+echo   		     		                 %choosey1-3% 1) Network Speed Test
+echo                                                  %choosey2-3% 2) CommsPhone
+echo                                                  %choosey3-3% 3) Conetivity Store
+echo                                                  %choosey4-3% 4) Messaging App
+echo                                                  %choosey5-3% 5) Microsoft Office Sway
 echo                                                  %choosey6-3% 6) OneConnect
-echo                                                  %choosey7-3% 7) Windows Feedback                 
-echo                                                  %choosey8-3% 8) Bing Food and Drink                  
+echo                                                  %choosey7-3% 7) Windows Feedback
+echo                                                  %choosey8-3% 8) Bing Food and Drink
 echo                                                  %choosey9-3% 9) Bing Travel
 echo.
-echo                                A) Previous Page      Q)Exit       D) Next page             				                                                       
+echo                                A) Previous Page      Q)Exit       D) Next page
 echo                                                     F) Finish
 echo 															                                              (4/5)
 echo ###########################################################################################################
@@ -900,7 +900,7 @@ if "%deletewhat%"==" " goto :menu4
 if [%deletewhat%]==[F] goto :finish
 if [%deletewhat%]==[f] goto :finish
 if [%deletewhat%]==[R] goto :recommended
-if [%deletewhat%]==[r] goto :recommended 
+if [%deletewhat%]==[r] goto :recommended
 if [%deletewhat%]==[1] goto :del1
 if [%deletewhat%]==[2] goto :del2
 if [%deletewhat%]==[3] goto :del3
@@ -930,7 +930,7 @@ goto :finishmenu
 goto :actuallyrecommend
 
 :delq
-choice /C yn /M "Quitting will not save your progress. Are you sure you want to quit?" 
+choice /C yn /M "Quitting will not save your progress. Are you sure you want to quit?"
 if ERRORLEVEL 2 goto :menu4
 if ERRORLEVEL 1 goto :loopymenu
 goto :menu4
@@ -978,7 +978,7 @@ goto :menu5
 	set benst3-3=true
 	set choosey3-3=[*]
 	goto :menu4
-	
+
 :del4
 	if %benst4-3%==true (
 		cls
@@ -1002,7 +1002,7 @@ goto :menu5
 	set benst5-3=true
 	set choosey5-3=[*]
 	goto :menu4
-	
+
 :del6
 	if %benst6-3%==true (
 		cls
@@ -1038,7 +1038,7 @@ goto :menu5
 	set benst8-3=true
 	set choosey8-3=[*]
 	goto :menu4
-	
+
 :del9
 	if %benst9-3%==true (
 		cls
@@ -1051,25 +1051,25 @@ goto :menu5
 	set choosey9-3=[*]
 	goto :menu4
 
-	
+
 :menu5
 cls
-echo 					    Default Windows 10 Apps 
+echo 					    Default Windows 10 Apps
 echo.
 echo.
-echo ###########################################################################################################   				                   
-echo 				           R) Uninstall Recommended          
-echo   		     		                 %choosey1-4% 1) Bing Health and Fitness                  
-echo                                                  %choosey2-4% 2) Windows Reading List                  
-echo.                                                 %choosey3-4% 3) Every Single Non-Microsoft App (All are bloatware)                 
-echo.                                                                  
-echo.                                                                   
-REM echo                                            4)Reinstall all deleted apps                                                
-echo.                                                                  
-echo.                                                                    
-echo.                                                  
+echo ###########################################################################################################
+echo 				           R) Uninstall Recommended
+echo   		     		                 %choosey1-4% 1) Bing Health and Fitness
+echo                                                  %choosey2-4% 2) Windows Reading List
+echo.                                                 %choosey3-4% 3) Every Single Non-Microsoft App (All are bloatware)
 echo.
-echo                                A) Previous Page      Q)Exit       D) Next page             				                                                       
+echo.
+REM echo                                            4)Reinstall all deleted apps
+echo.
+echo.
+echo.
+echo.
+echo                                A) Previous Page      Q)Exit       D) Next page
 echo                                                     F) Finish
 echo 															                                              (5/5)
 echo ###########################################################################################################
@@ -1081,7 +1081,7 @@ if "%deletewhat%"==" " goto :menu5
 if [%deletewhat%]==[F] goto :finish
 if [%deletewhat%]==[f] goto :finish
 if [%deletewhat%]==[R] goto :recommended
-if [%deletewhat%]==[r] goto :recommended 
+if [%deletewhat%]==[r] goto :recommended
 if [%deletewhat%]==[1] goto :del1
 if [%deletewhat%]==[2] goto :del2
 if [%deletewhat%]==[3] goto :del3
@@ -1107,13 +1107,13 @@ goto :actuallyrecommend
 
 REM :reins
 REM cls
-REM choice /C yn /M "This will reinstall every single app that your computer previously had. Are you sure?" 
+REM choice /C yn /M "This will reinstall every single app that your computer previously had. Are you sure?"
 REM if ERRORLEVEL 2 goto :menu5
 REM if ERRORLEVEL 1 PowerShell -NoProfile -ExecutionPolicy Bypass -Command "Get-appxpackage -allusers | where-object {$_.packagename -like "*camera*"} | remove-appxpackage}"
 REM goto :menu1
 
 :delq
-choice /C yn /M "Quitting will not save your progress. Are you sure you want to quit?" 
+choice /C yn /M "Quitting will not save your progress. Are you sure you want to quit?"
 if ERRORLEVEL 2 goto :menu5
 if ERRORLEVEL 1 goto :loopymenu
 goto :menu5
@@ -1161,7 +1161,7 @@ goto :menu5
 	set benst3-4=true
 	set choosey3-4=[*]
 	goto :menu5
-	
+
 
 :actuallyrecommend
 set benst3=true
@@ -1202,8 +1202,8 @@ if %benst8-1%==true set dispt8-1=echo                                           
 if %benst9-1%==true set dispt9-1=echo                                              Camera
 
 
-if %benst1-2%==true set dispt1-2=echo                                              Windows Maps 
-if %benst2-2%==true set dispt2-2=echo                                              Windows Phone 
+if %benst1-2%==true set dispt1-2=echo                                              Windows Maps
+if %benst2-2%==true set dispt2-2=echo                                              Windows Phone
 if %benst3-2%==true set dispt3-2=echo                                              Sound Recorder
 if %benst4-2%==true set dispt4-2=echo                                              Windows Store
 if %benst5-2%==true set dispt5-2=echo                                              Xbox App
@@ -1220,12 +1220,12 @@ if %benst4-3%==true set dispt4-3=echo                                           
 if %benst5-3%==true set dispt5-3=echo                                              Microsoft Office Sway
 if %benst6-3%==true set dispt6-3=echo                                              OneConnect
 if %benst7-3%==true set dispt7-3=echo                                              Windows Feedback
-if %benst8-3%==true set dispt8-3=echo                                              Bing Food and Travel 
-if %benst9-3%==true set dispt9-3=echo                                              Bing Travel 
+if %benst8-3%==true set dispt8-3=echo                                              Bing Food and Travel
+if %benst9-3%==true set dispt9-3=echo                                              Bing Travel
 
 
 if %benst1-4%==true set dispt1-4=echo                                              Bing Health and Fitness
-if %benst2-4%==true set dispt2-4=echo                                              Windows Reading List 
+if %benst2-4%==true set dispt2-4=echo                                              Windows Reading List
 if %benst3-4%==true set dispt3-4=echo                                              All of the non-windows bloatware no one wants
 
 cls
@@ -1288,8 +1288,8 @@ echo.
 %dispt3-5%
 echo.
 echo ############################################################################################################
-REM echo Everything can be returned if problems occur. 
-echo As of right now I haven't been able to figure out how to reinstall these programs. Please proceed with caution. 
+REM echo Everything can be returned if problems occur.
+echo As of right now I haven't been able to figure out how to reinstall these programs. Please proceed with caution.
 choice /C yn /M "Are you sure you want to delete all of these programs?"
 if ERRORLEVEL 2 goto :menu1
 if ERRORLEVEL 1 goto :actuallyfinish
@@ -1467,11 +1467,11 @@ echo   				##             Uninstall/Hide Cortana            ##
 echo   				##                                               ##
 echo   				##   There is sadly no real way to fully delete  ##
 echo   				##   Cortana. You have two choices, either hide  ##
-echo   				##   fully using a registry key or rename the    ## 
+echo   				##   fully using a registry key or rename the    ##
 REM 				 For some reason CMD echo is being very weird here
-echo                			##   file where Cortana is.                      ## 
+echo                			##   file where Cortana is.                      ##
 echo   				## WARNING: RENAMING FILE WILL STOP SEARCH MENU! ##
-echo 				##                                               ##	
+echo 				##                                               ##
 REM 				  		  Same with here for some reason
 echo                		        ##  1) Add Registery Key (Read GitHub for info)  ##
 echo                		        ##  2) Rename File (This WILL stop search menu)  ##
@@ -1479,7 +1479,7 @@ echo                                 ##  3) Reset                               
 echo                                 ##  4) Exit                                      ##
 echo 				##                                               ##
 echo   				###################################################
-echo. 
+echo.
 echo.
 set cortana=""
 set /p cortana=Choose what to do here:
@@ -1551,19 +1551,19 @@ goto :lolwhowants
 set /p resetcort=Do you want to reset Cortana fixes? Y or N:
 
 if [%resetcort%]==[Y] (
-	rename C:\Windows\SystemApps\zMicrosoft.Windows.Cortana_cw5n1h2txyewy\ Microsoft.Windows.Cortana_cw5n1h2txyewy 
-	
+	rename C:\Windows\SystemApps\zMicrosoft.Windows.Cortana_cw5n1h2txyewy\ Microsoft.Windows.Cortana_cw5n1h2txyewy
+
 	reg delete "HKLM\SOFTWARE\Policies\Microsoft\Windows\Windows Search" /f
 	pause
 	)
 if [%resetcort%]==[y] (
-	rename C:\Windows\SystemApps\zMicrosoft.Windows.Cortana_cw5n1h2txyewy\ Microsoft.Windows.Cortana_cw5n1h2txyewy 
-	
+	rename C:\Windows\SystemApps\zMicrosoft.Windows.Cortana_cw5n1h2txyewy\ Microsoft.Windows.Cortana_cw5n1h2txyewy
+
 	reg delete "HKLM\Software\Policies\Microsoft\Windows\Windows Search" /f
 	echo Reset Complete
 	pause
 	)
-	
+
 goto :lolwhowants
 
 
@@ -1584,16 +1584,9 @@ pause
 exit
 
 :lolexit
-set /p wannado=Are you sure you want to exit? Yes or No: 
+set /p wannado=Are you sure you want to exit? Yes or No:
 
 if %wannado% == Yes set bresult=true
 if %wannado% == yes set bresult=true
 if %wannado% == y set bresult=true
 if "%bresult%" == "true" (exit) else (goto:loopymenu)
- 
-
-
-
-
-
-
