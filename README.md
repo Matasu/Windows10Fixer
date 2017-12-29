@@ -1,5 +1,5 @@
 # General Warning
-## This is not at all complete. As of right now I have two of the five different fixes done. This is going to change obviously but for now my program is not finished.
+## This is not at all complete. As of right now I have two of the five different fixes done. This is going to change obviously but for now my program is not finished. Any setting changer past the first two, will either spit out a test message or crash the program.   
 
 # Windows10Fixer
 This is a batch file I created because I needed an easy and effective way of cleaning up my Windows 10 setup. This is my first actual working program and I hope to create more in the future. (Probably not anymore batch files though) 
