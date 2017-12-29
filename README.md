@@ -22,9 +22,6 @@ I plan on finishing this thing because as of right now there are still many thin
 The first step is to finalize my GitHub page and finish typing all of these READMEs. 
 
 # Licence
-
-## In small words, you can do whatever with my code. vvvv
-
 This is free and unencumbered software released into the public domain.
 
 Anyone is free to copy, modify, publish, use, compile, sell, or
@@ -51,3 +48,5 @@ OTHER DEALINGS IN THE SOFTWARE.
 For more information, please refer to <http://unlicense.org>
 
 © 2017 GitHub, Inc.
+
+## In small words, you can do whatever with my code. ^^^^
