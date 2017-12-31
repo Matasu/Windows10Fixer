@@ -175,6 +175,11 @@ set dispt1-4=
 set dispt2-4=
 set dispt3-4=
 
+set instcolor1=[47m[30m
+set instcolor2=
+set yesdaddy=true
+set nodaddy=false
+
 
 title Win10fix
 
@@ -187,7 +192,7 @@ REM Beginning of batch file
 cls
 
 
-color %colormesilly%
+
 
 echo.
 echo.
@@ -255,7 +260,6 @@ goto :loopymenu
 REM Main menu for choosing section of fixes
 :loopymenu
 title Win10fix
-color %colormesilly%
 mode con: cols=108 lines=40
 cls
 echo.
@@ -263,16 +267,18 @@ echo    	          _____________________________________________________________
 echo    	         [                                                                          ]
 echo    	         [                                                                          ]
 echo    	         [   [1] Uninstall Unwanted Apps                                            ]
+echo                  [                                                                          ]
+echo                  [        [2] Reinstall All Apps                                            ]
 echo    	         [    		                                                            ]
-echo    	         [   [2] Remove/Hide Cortana                                                ]
+echo    	         [   [3] Remove/Hide Cortana                                                ]
 echo    	         [                                                                          ]
-echo    	         [   [3] Change Unwanted Services                                           ]
+echo    	         [   [4] Change Unwanted Services                                           ]
 echo    	         [                                                                          ]
-echo    	         [   [4] Block Windows Telemetry                                            ]
+echo    	         [   [5] Block Windows Telemetry                                            ]
 echo    	         [                                                                          ]
-echo    	         [   [5] Optimize User Interface                                            ]
+echo    	         [   [6] Optimize User Interface                                            ]
 echo    	         [                                                                          ]
-echo    	         [   [6] Quit                                                               ]
+echo    	         [   [7] Quit                                                               ]
 echo    	         [                                                                          ]
 echo    	         [__________________________________________________________________________]
 
@@ -283,14 +289,15 @@ set choicebaby=""
 set /p choicebaby=Please choose what you want to change 1-6:
 ECHO.
 if "%choicebaby%"==" " goto :loopymenu
-if [%choicebaby%]==[6] goto :lolexit
+if [%choicebaby%]==[7] goto :lolexit
 if [%choicebaby%]==[ ] goto :loopymenu
 if [%choicebaby%]==[] goto :loopymenu
 if [%choicebaby%]==[1] goto :lolUni
-if [%choicebaby%]==[2] goto :lolwhowants
-if [%choicebaby%]==[3] goto :lolwaste
-if [%choicebaby%]==[4] goto :loldatamine
-if [%choicebaby%]==[5] goto :lolopti
+if [%choicebaby%]==[2] goto :lolinst
+if [%choicebaby%]==[3] goto :lolwhowants
+if [%choicebaby%]==[4] goto :lolwaste
+if [%choicebaby%]==[5] goto :loldatamine
+if [%choicebaby%]==[6] goto :lolopti
 
 CLS
 ECHO.
@@ -1572,6 +1579,83 @@ goto :lolwhowants
 
 
 
+
+:lolinst
+cls
+set "getKeyMacro=powershell -noprofile "^
+    while (-not (13.37.39.65..68).contains($x)) {^
+        $x = $Host.UI.RawUI.ReadKey('NoEcho,IncludeKeyDown').VirtualKeyCode^
+    }^
+    exit($x)^
+""
+
+
+
+
+echo.
+echo.
+echo   				################################################
+echo   				##                                            ##
+echo   				##               Windows 10 App               ##
+echo                                 ##                  Reinstall                 ##
+echo   				##                                            ##
+echo   				##  This will reinstall every single app that ##
+echo   				##  Windows 10 comes with. Are you sure you   ##
+echo   				##  want to continue?                         ##
+echo                                 ##                                            ##
+echo                                 ##                %instcolor1%Yes[0m[0m    %instcolor2%No[0m[0m                   ##
+echo  				##                                            ##
+echo   				################################################
+echo.
+set /P = Use Arrow keys or AD to choose and press enter.<NUL
+%getKeyMacro%
+
+if errorlevel 13 goto key%ERRORLEVEL%
+
+:key13
+if %yesdaddy%==true (
+start .\Scripts\ 
+cls
+echo.
+echo Sorry, you'll have to run this powershell script seperate. It doesn't like to be run through Batch Files.
+echo To run it all you have to do is right click and press "Run with Powershell".
+pause
+goto :loopymenu
+)
+
+if %nodaddy%==true (
+goto :loopymenu
+)
+
+
+:key37
+if %nodaddy%==true (
+	cls
+	set yesdaddy=true
+	set instcolor1=[47m[30m
+	set nodaddy=false
+	set instcolor2=
+	goto :lolinst
+)
+	
+:key39
+if %yesdaddy%==true (
+	cls
+	set yesdaddy=false
+	set instcolor1=
+	set nodaddy=true
+	set instcolor2=[47m[30m
+	goto :lolinst
+)
+
+:key65
+goto :key37
+
+:key68
+goto :key39
+
+pause
+goto :loopymenu
 
 :lolwaste
 echo This is choice 3
