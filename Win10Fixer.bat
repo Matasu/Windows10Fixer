@@ -180,6 +180,103 @@ set instcolor2=
 set yesdaddy=true
 set nodaddy=false
 
+set color1=[47m[30m
+set color2=
+set color3=
+set color4=
+set color5=
+set color6=
+set color7=
+set color8=
+set color9=
+set color10=
+set color11=
+set color12=
+set color13=
+set color14=
+set color15=
+set color16=
+set color17=
+set color18=
+set color19=
+set color20=
+
+set choice1=true
+set choice2=false
+set choice3=false
+set choice4=false
+set choice5=false
+set choice6=false
+set choice7=false
+set choice8=false
+set choice9=false
+set choice10=false
+set choice11=false
+set choice12=false
+set choice13=false
+set choice14=false
+set choice15=false
+set choice16=false
+set choice17=false
+set choice18=false
+set choice19=false
+set choice20=false
+
+set shizle1=false
+set shizle2=false
+set shizle3=false
+set shizle4=false
+set shizle5=false
+set shizle6=false
+set shizle7=false
+set shizle8=false
+set shizle9=false
+set shizle10=false
+set shizle11=false
+set shizle12=false
+set shizle13=false
+set shizle14=false
+set shizle15=false
+set shizle16=false
+set shizle17=false
+set shizle18=false
+set shizle19=false
+set shizle20=false
+
+set star1=
+set star2=
+set star3=
+set star4=
+set star5=
+set star6=
+set star7=
+set star8=
+set star9=
+set star10=
+set star11=
+set star12=
+set star13=
+set star14=
+set star15=
+set star16=
+set star17=
+set star18=
+set star19=
+set star20=
+
+rem There are 16 or more spaces in these sets
+set space1=]                 [
+set space2=]                       [
+set space3=]                  [
+set space4=]                      [
+set space5=]                    [
+set space6=]               [
+set space7=]               [
+set space8=]                     [
+set space9=]               [
+set space10=]                  [
+
+
 
 title Win10fix
 
@@ -272,7 +369,7 @@ echo                  [        [2] Reinstall All Apps                           
 echo    	         [    		                                                            ]
 echo    	         [   [3] Remove/Hide Cortana                                                ]
 echo    	         [                                                                          ]
-echo    	         [   [4] Change Unwanted Services                                           ]
+echo    	         [   [4] Disable Unwanted Services                                          ]
 echo    	         [                                                                          ]
 echo    	         [   [5] Block Windows Telemetry                                            ]
 echo    	         [                                                                          ]
@@ -1092,7 +1189,6 @@ if [%deletewhat%]==[r] goto :recommended
 if [%deletewhat%]==[1] goto :del1
 if [%deletewhat%]==[2] goto :del2
 if [%deletewhat%]==[3] goto :del3
-REM if [%deletewhat%]==[4] goto :reins
 if [%deletewhat%]==[Q] goto :delq
 if [%deletewhat%]==[q] goto :delq
 if [%deletewhat%]==[A] goto :delp
@@ -1111,13 +1207,6 @@ goto :finishmenu
 
 :recommended
 goto :actuallyrecommend
-
-REM :reins
-REM cls
-REM choice /C yn /M "This will reinstall every single app that your computer previously had. Are you sure?"
-REM if ERRORLEVEL 2 goto :menu5
-REM if ERRORLEVEL 1 PowerShell -NoProfile -ExecutionPolicy Bypass -Command "Get-appxpackage -allusers | where-object {$_.packagename -like "*camera*"} | remove-appxpackage}"
-REM goto :menu1
 
 :delq
 choice /C yn /M "Quitting will not save your progress. Are you sure you want to quit?"
@@ -1295,8 +1384,7 @@ echo.
 %dispt3-5%
 echo.
 echo ############################################################################################################
-REM echo Everything can be returned if problems occur.
-echo As of right now I haven't been able to figure out how to reinstall these programs. Please proceed with caution.
+echo Everything can be returned if problems occur.
 choice /C yn /M "Are you sure you want to delete all of these programs?"
 if ERRORLEVEL 2 goto :menu1
 if ERRORLEVEL 1 goto :actuallyfinish
@@ -1617,7 +1705,7 @@ if %yesdaddy%==true (
 start .\Scripts\ 
 cls
 echo.
-echo Sorry, you'll have to run this powershell script seperate. It doesn't like to be run through Batch Files.
+echo Sorry, you'll have to run this Powershell Script seperate. It doesn't like to be run through Batch Files.
 echo To run it all you have to do is right click and press "Run with Powershell".
 pause
 goto :loopymenu
@@ -1658,8 +1746,1370 @@ pause
 goto :loopymenu
 
 :lolwaste
-echo This is choice 3
+set "getKeyMacro=powershell -noprofile "^
+    while (-not (13.32.37.38.39.40.65.68.81.83.87..88).contains($x)) {^
+        $x = $Host.UI.RawUI.ReadKey('NoEcho,IncludeKeyDown').VirtualKeyCode^
+    }^
+    exit($x)^
+""
+
+
+cls
+echo 					Disable Unwanted Services
+echo.
+echo ###########################################################################################################
+echo.
+echo 			   [%color1%Diagnostics Hub[0m[0m%star1%%space1%%color11%SharedAccess[0m[0m%star11%]
+echo.
+echo 			   [%color2%DiagTrack[0m[0m%star2%%space2%%color12%TrkWks[0m[0m%star12%]
+echo.
+echo 			   [%color3%AppPushService[0m[0m%star3%%space3%%color13%WbioSrvc[0m[0m%star13%]
+echo.
+echo 			   [%color4%MapsBroker[0m[0m%star4%%space4%%color14%WlanSvc[0m[0m%star14%]
+echo.
+echo 			   [%color5%RemoteAccess[0m[0m%star5%%space5%%color15%WMPNetworkSvc[0m[0m%star15%]
+echo.
+echo                            [%color6%HomeGroupListener[0m[0m%star6%%space6%%color16%wscsvc[0m[0m%star16%]
+echo.
+echo                            [%color7%HomeGroupProvider[0m[0m%star7%%space7%%color17%WSearch[0m[0m%star17%]
+echo.
+echo                            [%color8%Geolocation[0m[0m%star8%%space8%%color18%XblAuthManager[0m[0m%star18%]
+echo.
+echo                            [%color9%NetTcpPortSharing[0m[0m%star9%%space9%%color19%XblGameSave[0m[0m%star19%]
+echo.
+echo                            [%color10%RemoteRegistry[0m[0m%star10%%space10%%color20%XboxNetApiSvc[0m[0m%star20%]
+echo.
+echo ###########################################################################################################
+echo  Use Arrow Keys to move and the Space Bar to choose what service you want to disable
+echo  Press X for more information, Q to exit, and press Enter to finish.
+
+echo.
+set /P "="<NUL
+%getKeyMacro%
+
+if errorlevel 13 goto key%ERRORLEVEL%
+
+
+rem Enter
+:key13
+set list1=
+set list2=
+set list3=
+set list4=
+set list5=
+set list6=
+set list7=
+set list8=
+set list9=
+set list10=
+set list11=
+set list12=
+set list13=
+set list14=
+set list15=
+set list16=
+set list17=
+set list18=
+set list19=
+set list20=
+if %shizle1%==true set list1=echo                                              Diagnostics Hub
+if %shizle2%==true set list2=echo                                              DiagTrack
+if %shizle3%==true set list3=echo                                              AppPushService
+if %shizle4%==true set list4=echo                                              MapsBroker
+if %shizle5%==true set list5=echo                                              RemoteAccess
+if %shizle6%==true set list6=echo                                              HomeGroupListener
+if %shizle7%==true set list7=echo                                              HomeGroupProvider
+if %shizle8%==true set list8=echo                                              Geolocation
+if %shizle9%==true set list9=echo                                              NetTcpPortSharing
+if %shizle10%==true set list10=echo                                              RemoteRegistry
+if %shizle11%==true set list11=echo                                              SharedAccess
+if %shizle12%==true set list12=echo                                              TrkWks
+if %shizle13%==true set list13=echo                                              WbioSrvc
+if %shizle14%==true set list14=echo                                              WlanSvc
+if %shizle15%==true set list15=echo                                              WMPNetworkSvc
+if %shizle16%==true set list16=echo                                              wscsvc
+if %shizle17%==true set list17=echo                                              Wsearch
+if %shizle18%==true set list18=echo                                              XblAuthManager
+if %shizle19%==true set list19=echo                                              XblGameSave
+if %shizle20%==true set list20=echo                                              XboxNetApiSvc
+
+
+cls
+echo.
+echo                                           Services to be Disabled
+echo.
+echo ###########################################################################################################
+echo.
+%list1%
+%list2%
+%list3%
+%list4%
+%list5%
+%list6%
+%list7%
+%list8%
+%list9%
+%list10%
+%list11%
+%list12%
+%list13%
+%list14%
+%list15%
+%list16%
+%list17%
+%list18%
+%list19%
+%list20%
+echo.
+echo ###########################################################################################################
+choice /C yn /M "There is not a way to roll back the disabled services right now. Are you sure you want to continue?
+if errorlevel 2 goto :lolwaste
+if errorlevel 1 goto :uninstallserv
+
+:uninstallserv
+cls
+if %shizle1%==true (
+	sc config "diagnosticshub.standardcollector.service" start= disabled
+	sc stop "diagnosticshub.standardcollector.service"
+)
+
+if %shizle2%==true (
+	sc config "DiagTrack" start= disabled
+	sc stop "DiagTrack"
+)
+
+if %shizle3%==true (
+	sc config "dmwappushservice" start= disabled
+	sc stop "dmwappushservice"
+)
+
+if %shizle4%==true (
+	sc config "MapsBroker" start= disabled
+	sc stop "MapsBroker"
+)
+
+if %shizle5%==true (
+	sc config "RemoteAccess" start= disabled
+	sc stop "RemoteAccess"
+)
+
+if %shizle6%==true (
+	sc config "HomeGroupListener" start= disabled
+	sc stop "HomeGroupListener"
+)
+
+if %shizle7%==true (
+	sc config "HomeGroupProvider" start= disabled
+	sc stop "HomeGroupProvider"
+)
+
+if %shizle8%==true (
+	sc config "lfsvc" start= disabled
+	sc stop "lfsvc"
+	sc config "Geolocation" start= disabled
+	sc stop "Geolocation"
+)
+
+if %shizle9%==true (
+	sc config "NetTcpPortSharing" start= disabled
+	sc stop "NetTcpPortSharing"
+)
+
+if %shizle10%==true (
+	sc config "RemoteRegistry" start= disabled
+	sc stop "RemoteRegistry"
+)
+
+if %shizle11%==true (
+	sc config "SharedAccess" start= disabled
+	sc stop "SharedAccess"
+)
+
+if %shizle12%==true (
+	sc config "TrkWks" start= disabled
+	sc stop "TrkWks"
+)
+
+if %shizle13%==true (
+	sc config "WbioSrvc" start= disabled
+	sc stop "WbioSrvc"
+)
+
+if %shizle14%==true (
+	sc config "WlanSvc" start= disabled
+	sc stop "WlanSvc"
+)
+
+if %shizle15%==true (
+	sc config "WMPNetworkSvc" start= disabled
+	sc stop "WMPNetworkSvc"
+)
+
+if %shizle16%==true (
+	sc config "wscsvc" start= disabled
+	sc stop "wscsvc"
+)
+
+if %shizle17%==true (
+	sc config "Wsearch" start= disabled
+	sc stop "Wsearch"
+)
+
+if %shizle18%==true (
+	sc config "XblAuthManager" start= disabled
+	sc stop "XblAuthManager"
+)
+
+if %shizle19%==true (
+	sc config "XblGameSave" start= disabled
+	sc stop "XblGameSave"
+)
+
+if %shizle20%==true (
+	sc config "XboxNetApiSvc" start= disabled
+	sc stop "XboxNetApiSvc"
+)
+echo It's ok if there are failures. DONT WORRY!!
 pause
+goto :loopymenu
+
+Rem Space
+:key32
+	if %choice1%==true (
+		if %shizle1%==false (
+			set shizle1=true
+			set star1=*
+			set space1=]                [
+			goto :lolwaste
+		)
+	)
+
+	if %choice1%==true (
+		if %shizle1%==true (
+			set shizle1=false
+			set star1=
+			set space1=]                 [
+			goto :lolwaste
+		)
+  )
+
+
+	if %choice2%==true (
+		if %shizle2%==false (
+			set shizle2=true
+			set star2=*
+			set space2=]                      [
+			goto :lolwaste
+		)
+	)
+
+	if %choice2%==true (
+		if %shizle2%==true (
+			set shizle2=false
+			set star2=
+			set space2=]                       [
+			goto :lolwaste
+		)
+  )
+
+	if %choice3%==true (
+			if %shizle3%==false (
+				set shizle3=true
+				set star3=*
+				set space3=]                 [
+				goto :lolwaste
+			)
+		)
+
+	if %choice3%==true (
+		if %shizle3%==true (
+			set shizle3=false
+			set star3=
+			set space3=]                  [
+			goto :lolwaste
+		)
+  )
+
+	if %choice4%==true (
+			if %shizle4%==false (
+				set shizle4=true
+				set star4=*
+				set space4=]                     [
+				goto :lolwaste
+			)
+		)
+
+	if %choice4%==true (
+		if %shizle4%==true (
+			set shizle4=false
+			set star4=
+			set space4=]                      [
+			goto :lolwaste
+		)
+  )
+
+	if %choice5%==true (
+			if %shizle5%==false (
+				set shizle5=true
+				set star5=*
+				set space5=]                   [
+				goto :lolwaste
+			)
+	)
+
+	if %choice5%==true (
+		if %shizle5%==true (
+			set shizle5=false
+			set star5=
+			set space5=]                    [
+			goto :lolwaste
+		)
+  )
+
+
+	if %choice6%==true (
+		if %shizle6%==false (
+			set shizle6=true
+			set star6=*
+			set space6=]              [
+			goto :lolwaste
+		)
+	)
+
+	if %choice6%==true (
+		if %shizle6%==true (
+			set shizle6=false
+			set star6=
+			set space6=]               [
+			goto :lolwaste
+		)
+  )
+
+	if %choice7%==true (
+		if %shizle7%==false (
+			set shizle7=true
+			set star7=*
+			set space7=]              [
+			goto :lolwaste
+		)
+	)
+
+	if %choice7%==true (
+		if %shizle7%==true (
+			set shizle7=false
+			set star7=
+			set space7=]               [
+			goto :lolwaste
+		)
+  )
+
+	if %choice8%==true (
+		if %shizle8%==false (
+			set shizle8=true
+			set star8=*
+			set space8=]                    [
+			goto :lolwaste
+		)
+	)
+
+	if %choice8%==true (
+		if %shizle8%==true (
+			set shizle8=false
+			set star8=
+			set space8=]                     [
+			goto :lolwaste
+		)
+  )
+
+	if %choice9%==true (
+		if %shizle9%==false (
+			set shizle9=true
+			set star9=*
+			set space9=]              [
+			goto :lolwaste
+		)
+	)
+
+	if %choice9%==true (
+		if %shizle9%==true (
+			set shizle9=false
+			set star9=
+			set space9=]               [
+			goto :lolwaste
+		)
+  )
+
+	if %choice10%==true (
+		if %shizle10%==false (
+			set shizle10=true
+			set star10=*
+			set space10=]                 [
+			goto :lolwaste
+		)
+	)
+
+	if %choice10%==true (
+		if %shizle10%==true (
+			set shizle10=false
+			set star10=
+			set space10=]                  [
+			goto :lolwaste
+		)
+  )
+
+	if %choice11%==true (
+		if %shizle11%==false (
+			set shizle11=true
+			set star11=*
+			goto :lolwaste
+		)
+	)
+
+	if %choice11%==true (
+		if %shizle11%==true (
+			set shizle11=false
+			set star11=
+			goto :lolwaste
+		)
+  )
+
+	if %choice12%==true (
+		if %shizle12%==false (
+			set shizle12=true
+			set star12=*
+			goto :lolwaste
+		)
+	)
+
+	if %choice12%==true (
+		if %shizle12%==true (
+			set shizle12=false
+			set star12=
+			goto :lolwaste
+		)
+  )
+
+	if %choice13%==true (
+		if %shizle13%==false (
+			set shizle13=true
+			set star13=*
+			goto :lolwaste
+		)
+	)
+
+	if %choice13%==true (
+		if %shizle13%==true (
+			set shizle13=false
+			set star13=
+			goto :lolwaste
+		)
+  )
+
+	if %choice14%==true (
+		if %shizle14%==false (
+			set shizle14=true
+			set star14=*
+			goto :lolwaste
+		)
+	)
+
+	if %choice14%==true (
+		if %shizle14%==true (
+			set shizle14=false
+			set star14=
+			goto :lolwaste
+		)
+  )
+
+	if %choice15%==true (
+		if %shizle15%==false (
+			set shizle15=true
+			set star15=*
+			goto :lolwaste
+		)
+	)
+
+	if %choice15%==true (
+		if %shizle15%==true (
+			set shizle15=false
+			set star15=
+			goto :lolwaste
+		)
+  )
+
+	if %choice16%==true (
+		if %shizle16%==false (
+			set shizle16=true
+			set star16=*
+			goto :lolwaste
+		)
+	)
+
+	if %choice16%==true (
+		if %shizle16%==true (
+			set shizle16=false
+			set star16=
+			goto :lolwaste
+		)
+  )
+
+	if %choice17%==true (
+		if %shizle17%==false (
+			set shizle17=true
+			set star17=*
+			goto :lolwaste
+		)
+	)
+
+	if %choice17%==true (
+		if %shizle17%==true (
+			set shizle17=false
+			set star17=
+			goto :lolwaste
+		)
+  )
+
+	if %choice18%==true (
+		if %shizle18%==false (
+			set shizle18=true
+			set star18=*
+			goto :lolwaste
+		)
+	)
+
+	if %choice18%==true (
+		if %shizle18%==true (
+			set shizle18=false
+			set star18=
+			goto :lolwaste
+		)
+  )
+
+	if %choice19%==true (
+		if %shizle19%==false (
+			set shizle19=true
+			set star19=*
+			goto :lolwaste
+		)
+	)
+
+	if %choice19%==true (
+		if %shizle19%==true (
+			set shizle19=false
+			set star19=
+			goto :lolwaste
+		)
+  )
+
+	if %choice20%==true (
+		if %shizle20%==false (
+			set shizle20=true
+			set star20=*
+			goto :lolwaste
+		)
+	)
+
+	if %choice20%==true (
+		if %shizle20%==true (
+			set shizle20=false
+			set star20=
+			goto :lolwaste
+		)
+  )
+
+
+Rem Left
+:key37
+	if %choice11%==true (
+			cls
+			set choice11=false
+			set color11=
+			set choice1=true
+			set color1=[47m[30m
+			goto :lolwaste
+			)
+	if %choice12%==true (
+			cls
+			set choice12=false
+			set color12=
+			set choice2=true
+			set color2=[47m[30m
+			goto :lolwaste
+			)
+	if %choice13%==true (
+			cls
+			set choice13=false
+			set color13=
+			set choice3=true
+			set color3=[47m[30m
+			goto :lolwaste
+			)
+	if %choice14%==true (
+			cls
+			set choice14=false
+			set color14=
+			set choice4=true
+			set color4=[47m[30m
+			goto :lolwaste
+			)
+	if %choice15%==true (
+			cls
+			set choice15=false
+			set color15=
+			set choice5=true
+			set color5=[47m[30m
+			goto :lolwaste
+			)
+	if %choice16%==true (
+			cls
+			set choice16=false
+			set color16=
+			set choice6=true
+			set color6=[47m[30m
+			goto :lolwaste
+			)
+	if %choice17%==true (
+			cls
+			set choice17=false
+			set color17=
+			set choice7=true
+			set color7=[47m[30m
+			goto :lolwaste
+			)
+	if %choice18%==true (
+			cls
+			set choice18=false
+			set color18=
+			set choice8=true
+			set color8=[47m[30m
+			goto :lolwaste
+			)
+	if %choice19%==true (
+			cls
+			set choice19=false
+			set color19=
+			set choice9=true
+			set color9=[47m[30m
+			goto :lolwaste
+			)
+	if %choice20%==true (
+			cls
+			set choice20=false
+			set color20=
+			set choice10=true
+			set color10=[47m[30m
+			goto :lolwaste
+			)
+
+cls
+goto :lolwaste
+
+rem Up
+:key38
+echo up
+	if %choice1%==true (
+			cls
+			set choice1=false
+			set color1=
+			set choice20=true
+			set color20=[47m[30m
+			goto :lolwaste
+			)
+	if %choice2%==true (
+			cls
+			set choice2=false
+			set color2=
+			set choice1=true
+			set color1=[47m[30m
+			goto :lolwaste
+			)
+	if %choice3%==true (
+			cls
+			set choice3=false
+			set color3=
+			set choice2=true
+			set color2=[47m[30m
+			goto :lolwaste
+			)
+	if %choice4%==true (
+			cls
+			set choice4=false
+			set color4=
+			set choice3=true
+			set color3=[47m[30m
+			goto :lolwaste
+			)
+	if %choice5%==true (
+			cls
+			set choice5=false
+			set color5=
+			set choice4=true
+			set color4=[47m[30m
+			goto :lolwaste
+			)
+	if %choice6%==true (
+		cls
+		set choice6=false
+		set color6=
+		set choice5=true
+		set color5=[47m[30m
+		goto :lolwaste
+				)
+	if %choice7%==true (
+			cls
+			set choice7=false
+			set color7=
+			set choice6=true
+			set color6=[47m[30m
+			goto :lolwaste
+			)
+	if %choice8%==true (
+			cls
+			set choice8=false
+			set color8=
+			set choice7=true
+			set color7=[47m[30m
+			goto :lolwaste
+			)
+	if %choice9%==true (
+			cls
+			set choice9=false
+			set color9=
+			set choice8=true
+			set color8=[47m[30m
+			goto :lolwaste
+			)
+	if %choice11%==true (
+			cls
+			set choice11=false
+			set color11=
+			set choice10=true
+			set color10=[47m[30m
+			goto :lolwaste
+			)
+	if %choice12%==true (
+			cls
+			set choice12=false
+			set color12=
+			set choice11=true
+			set color11=[47m[30m
+			goto :lolwaste
+			)
+	if %choice13%==true (
+			cls
+			set choice13=false
+			set color13=
+			set choice12=true
+			set color12=[47m[30m
+			goto :lolwaste
+			)
+	if %choice14%==true (
+			cls
+			set choice14=false
+			set color14=
+			set choice13=true
+			set color13=[47m[30m
+			goto :lolwaste
+			)
+	if %choice15%==true (
+			cls
+			set choice15=false
+			set color15=
+			set choice14=true
+			set color14=[47m[30m
+			goto :lolwaste
+			)
+	if %choice16%==true (
+			cls
+			set choice16=false
+			set color16=
+			set choice15=true
+			set color15=[47m[30m
+			goto :lolwaste
+			)
+	if %choice17%==true (
+			cls
+			set choice17=false
+			set color17=
+			set choice16=true
+			set color16=[47m[30m
+			goto :lolwaste
+			)
+	if %choice18%==true (
+			cls
+			set choice18=false
+			set color18=
+			set choice17=true
+			set color17=[47m[30m
+			goto :lolwaste
+			)
+	if %choice19%==true (
+			cls
+			set choice19=false
+			set color19=
+			set choice18=true
+			set color18=[47m[30m
+			goto :lolwaste
+			)
+	if %choice20%==true (
+			cls
+			set choice20=false
+			set color20=
+			set choice19=true
+			set color19=[47m[30m
+			goto :lolwaste
+			)
+	if %choice10%==true (
+			cls
+			set choice10=false
+			set color10=
+			set choice9=true
+			set color9=[47m[30m
+			goto :lolwaste
+			)
+	if %choice10%==true (
+			cls
+			set choice10=false
+			set color10=
+			set choice9=true
+			set color9=[47m[30m
+			goto :lolwaste
+			)
+
+
+cls
+goto :lolwaste
+
+rem Right
+:key39
+	if %choice1%==true (
+			cls
+			set choice1=false
+			set color1=
+			set choice11=true
+			set color11=[47m[30m
+			goto :lolwaste
+			)
+
+	if %choice2%==true (
+			cls
+			set choice2=false
+			set color2=
+			set choice12=true
+			set color12=[47m[30m
+			goto :lolwaste
+			)
+	if %choice3%==true (
+			cls
+			set choice3=false
+			set color3=
+			set choice13=true
+			set color13=[47m[30m
+			goto :lolwaste
+			)
+	if %choice4%==true (
+			cls
+			set choice4=false
+			set color4=
+			set choice14=true
+			set color14=[47m[30m
+			goto :lolwaste
+			)
+	if %choice5%==true (
+			cls
+			set choice5=false
+			set color5=
+			set choice15=true
+			set color15=[47m[30m
+			goto :lolwaste
+			)
+	if %choice6%==true (
+			cls
+			set choice6=false
+			set color6=
+			set choice16=true
+			set color16=[47m[30m
+			goto :lolwaste
+			)
+	if %choice7%==true (
+			cls
+			set choice7=false
+			set color7=
+			set choice17=true
+			set color17=[47m[30m
+			goto :lolwaste
+			)
+	if %choice8%==true (
+			cls
+			set choice8=false
+			set color8=
+			set choice18=true
+			set color18=[47m[30m
+			goto :lolwaste
+			)
+	if %choice9%==true (
+			cls
+			set choice9=false
+			set color9=
+			set choice19=true
+			set color19=[47m[30m
+			goto :lolwaste
+			)
+	if %choice10%==true (
+			cls
+			set choice10=false
+			set color10=
+			set choice20=true
+			set color20=[47m[30m
+			goto :lolwaste
+			)
+
+cls
+goto :lolwaste
+
+rem Down
+:key40
+	if %choice1%==true (
+			cls
+			set choice1=false
+			set color1=
+			set choice2=true
+			set color2=[47m[30m
+			goto :lolwaste
+			)
+	if %choice2%==true (
+			cls
+			set choice2=false
+			set color2=
+			set choice3=true
+			set color3=[47m[30m
+			goto :lolwaste
+			)
+	if %choice3%==true (
+			cls
+			set choice3=false
+			set color3=
+			set choice4=true
+			set color4=[47m[30m
+			goto :lolwaste
+			)
+	if %choice4%==true (
+			cls
+			set choice4=false
+			set color4=
+			set choice5=true
+			set color5=[47m[30m
+			goto :lolwaste
+			)
+	if %choice5%==true (
+			cls
+			set choice5=false
+			set color5=
+			set choice6=true
+			set color6=[47m[30m
+			goto :lolwaste
+			)
+	if %choice6%==true (
+			cls
+			set choice6=false
+			set color6=
+			set choice7=true
+			set color7=[47m[30m
+			goto :lolwaste
+			)
+	if %choice7%==true (
+			cls
+			set choice7=false
+			set color7=
+			set choice8=true
+			set color8=[47m[30m
+			goto :lolwaste
+			)
+	if %choice8%==true (
+			cls
+			set choice8=false
+			set color8=
+			set choice9=true
+			set color9=[47m[30m
+			goto :lolwaste
+			)
+	if %choice9%==true (
+		cls
+		set choice9=false
+		set color9=
+		set choice10=true
+		set color10=[47m[30m
+		goto :lolwaste
+		)
+	if %choice10%==true (
+		cls
+		set choice10=false
+		set color10=
+		set choice11=true
+		set color11=[47m[30m
+		goto :lolwaste
+		)
+	if %choice11%==true (
+		cls
+		set choice11=false
+		set color11=
+		set choice12=true
+		set color12=[47m[30m
+		goto :lolwaste
+		)
+	if %choice12%==true (
+		cls
+		set choice12=false
+		set color12=
+		set choice13=true
+		set color13=[47m[30m
+		goto :lolwaste
+		)
+	if %choice13%==true (
+		cls
+		set choice13=false
+		set color13=
+		set choice14=true
+		set color14=[47m[30m
+		goto :lolwaste
+		)
+	if %choice14%==true (
+		cls
+		set choice14=false
+		set color14=
+		set choice15=true
+		set color15=[47m[30m
+		goto :lolwaste
+		)
+	if %choice15%==true (
+		cls
+		set choice15=false
+		set color15=
+		set choice16=true
+		set color16=[47m[30m
+		goto :lolwaste
+		)
+	if %choice16%==true (
+		cls
+		set choice16=false
+		set color16=
+		set choice17=true
+		set color17=[47m[30m
+		goto :lolwaste
+		)
+	if %choice17%==true (
+		cls
+		set choice17=false
+		set color17=
+		set choice18=true
+		set color18=[47m[30m
+		goto :lolwaste
+		)
+	if %choice18%==true (
+		cls
+		set choice18=false
+		set color18=
+		set choice19=true
+		set color19=[47m[30m
+		goto :lolwaste
+		)
+	if %choice19%==true (
+		cls
+		set choice19=false
+		set color19=
+		set choice20=true
+		set color20=[47m[30m
+		goto :lolwaste
+		)
+	if %choice20%==true (
+		cls
+		set choice20=false
+		set color20=
+		set choice1=true
+		set color1=[47m[30m
+		goto :lolwaste
+		)
+cls
+goto :lolwaste
+
+rem a
+:key65
+goto :key37
+
+rem d
+:key68
+goto :key39
+
+rem q
+:key81
+choice /C yn /M "Are you sure you want to quit?"
+if errorlevel 2 goto :lolwaste
+if errorlevel 1 goto :loopymenu
+
+
+rem s
+:key83
+goto :key40
+
+rem w
+:key87
+goto :key38
+
+:key88
+	if %choice1%==true goto :info1
+	if %choice2%==true goto :info2
+	if %choice3%==true goto :info3
+	if %choice4%==true goto :info4
+	if %choice5%==true goto :info5
+	if %choice6%==true goto :info6
+	if %choice7%==true goto :info7
+	if %choice8%==true goto :info8
+	if %choice9%==true goto :info9
+	if %choice10%==true goto :info10
+	if %choice11%==true goto :info11
+	if %choice12%==true goto :info12
+	if %choice13%==true goto :info13
+	if %choice14%==true goto :info14
+	if %choice15%==true goto :info15
+	if %choice16%==true goto :info16
+	if %choice17%==true goto :info17
+	if %choice18%==true goto :info18
+	if %choice19%==true goto :info19
+	if %choice20%==true goto :info20
+
+
+:info1
+cls
+echo   				################################################
+echo   				##                                            ##
+echo   				##              Diagnostics Hub               ##
+echo   				##                                            ##
+echo   				##  Collects User Data and sends that info to ##
+echo   				##  Microsoft for their use. Will not effect  ##
+echo   				##  anything if disabled.                     ##
+echo   				##                                            ##
+echo  				##                                            ##
+echo   				################################################
+
+
+pause
+goto :lolwaste
+
+:info2
+cls
+echo   				################################################
+echo   				##                                            ##
+echo   				##                 DiagTrack                  ##
+echo   				##                                            ##
+echo   				##  Windows Telemetry service. Another way    ##
+echo   				##  for Microsoft to collect data. Does       ##
+echo   				##  not effect anything if disabled.          ##
+echo   				##                                            ##
+echo  				##                                            ##
+echo   				################################################
+
+
+pause
+goto :lolwaste
+
+:info3
+cls
+echo   				################################################
+echo   				##                                            ##
+echo   				##               AppPushService               ##
+echo   				##                                            ##
+echo   				##  Windows Telemetry service. Another way    ##
+echo   				##  for Microsoft to collect data. Does       ##
+echo   				##  not effect anything if disabled.          ##
+echo   				##                                            ##
+echo  				##                                            ##
+echo   				################################################
+
+pause
+goto :lolwaste
+
+:info4
+cls
+echo   				#################################################
+echo   				##                                             ##
+echo   				##                 MapsBroker                  ##
+echo   				##                                             ##
+echo   				##  Allows Windows to download maps from Bing. ##
+echo   				##  Do not disable if you download maps or use ##
+echo   				##  maps in Windows 10.                        ##
+echo   				##                                             ##
+echo  				##                                             ##
+echo   				#################################################
+
+pause
+goto :lolwaste
+
+:info5
+cls
+echo   				##################################################
+echo   				##                                              ##
+echo   				##                RemoteAccess                  ##
+echo   				##                                              ##
+echo   				##  Allows Windows to connect to and from other ##
+echo   				##  Windows computers. Do not disable if you    ##
+echo   				##  use Remote Access.                          ##
+echo   				##                                              ##
+echo  				##                                              ##
+echo   				##################################################
+
+pause
+goto :lolwaste
+
+:info6
+cls
+echo   				###############################################
+echo   				##                                           ##
+echo   				##               HomeGroupListener           ##
+echo   				##                                           ##
+echo   				##  Allows Windows to create and connect to  ##
+echo   				##  HomeGroups. Do not disable if you use a  ##
+echo   				##  HomeGroup.                               ##
+echo   				##                                           ##
+echo  				##                                           ##
+echo   				###############################################
+
+pause
+goto :lolwaste
+
+:info7
+cls
+echo   				###############################################
+echo   				##                                           ##
+echo   				##               HomeGroupProvider           ##
+echo   				##                                           ##
+echo   				##  Allows Windows to create and connect to  ##
+echo   				##  HomeGroups. Do not disable if you use a  ##
+echo   				##  HomeGroup.                               ##
+echo   				##                                           ##
+echo  				##                                           ##
+echo   				###############################################
+
+pause
+goto :lolwaste
+
+:info8
+cls
+echo   				###############################################
+echo   				##                                           ##
+echo   				##                 Geolocation               ##
+echo   				##                                           ##
+echo   				##  Allows Windows to find and use your geo- ##
+echo   				##  location in it's apps. Do not disable if ##
+echo   				##  you use apps that need Geolocation.      ##
+echo   				##                                           ##
+echo  				##                                           ##
+echo   				###############################################
+
+pause
+goto :lolwaste
+
+:info9
+cls
+echo   				###############################################
+echo   				##                                           ##
+echo   				##              NetTcpPortSharing            ##
+echo   				##                                           ##
+echo   				##  I have no clue what this does except     ##
+echo   				##  it's a way of connecting to the internet.##
+echo   				##  I would not recommend disabling this     ##
+echo   				##  service.                                 ##
+echo  				##                                           ##
+echo   				###############################################
+
+pause
+goto :lolwaste
+
+:info10
+cls
+echo   				###############################################
+echo   				##                                           ##
+echo   				##              RemoteRegistry               ##
+echo   				##                                           ##
+echo   				##  Allows other Windows users to connect to ##
+echo   				##  your registry with permission. Do not    ##
+echo   				##  disable if you allow others to access    ##
+echo   				##  your computer remotely.                  ##
+echo  				##                                           ##
+echo   				###############################################
+
+pause
+goto :lolwaste
+
+:info11
+cls
+echo hello
+
+pause
+goto :lolwaste
+
+:info12
+cls
+echo hello
+
+pause
+goto :lolwaste
+
+:info13
+cls
+echo hello
+
+pause
+goto :lolwaste
+
+:info14
+cls
+echo hello
+
+pause
+goto :lolwaste
+
+:info15
+cls
+echo hello
+
+pause
+goto :lolwaste
+
+:info16
+cls
+echo hello
+
+pause
+goto :lolwaste
+
+:info17
+cls
+echo hello
+
+pause
+goto :lolwaste
+
+:info18
+cls
+echo hello
+
+pause
+goto :lolwaste
+
+:info19
+cls
+echo hello
+
+pause
+goto :lolwaste
+
+:info20
+cls
+echo hello
+
+pause
+goto :lolwaste
+
 
 :loldatamine
 echo This is choice 1
