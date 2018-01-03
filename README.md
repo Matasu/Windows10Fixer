@@ -1,5 +1,5 @@
 # General Warning
-## This is not at all complete. As of right now I have five of the eight different fixes done. This is going to change obviously but for now my program is not finished. Any setting changer past the first five, will either spit out a test message or crash the program.   
+## This is not a complete program. As of right now I have five of the eight different fixes done. This is going to change obviously but for now my program is not finished. Any setting changer past the first five, will either spit out a test message or crash the program.   
 
 # Windows10Fixer
 This is a batch file I created because I needed an easy and effective way of cleaning up my Windows 10 setup. This is my first actual working program and I hope to create more in the future. (Probably not anymore batch files though) 
@@ -14,15 +14,25 @@ In the future, I have no clue what Microsoft is planning with Windows 10 so be p
 
 I created this for me and those that aren't really tech-savvy and like to have words and buttons to press. 
 
+# How my program is set up
+## 1. Uninstall Unwanted Apps
+  There is a big list full of Windows 10 programs that could be potentially uninstalled.
+## 2. Reinstall All Apps
+  This reinstalls all Windows 10 apps that were uninstalled in the first setting changer.
+## 3. Remove/Hide Cortana
+  This allows you to remove Cortana from Windows 10. This also allows you to reinstall Cortana if uninstalled/edited.
+## 4. Disable Unwanted Services
+  This brings up a list of services that are potentially slowing down your computer. 
+## 5. Re-enable Disabled Services
+  This really does exactly what it says. It gives you the option to re-enable all services disabled in the previous setting or to choose what services you want re-enabled.
+
+## 6-10 are not finished and everything is up in the air when it comes to these settings.
+
 # Usage
 Just click on the file that ends with .bat. Boom! Good job you did it!
 
 # Problems/Bugs/Issues
 I have no clue if there are any yet because I've been the only one to use this program.
-
-# Plans
-I plan on finishing this thing because as of right now there are still many things I have to do to get this program flushed out. 
-The first step is to finalize my GitHub page and finish typing all of these READMEs. 
 
 # Licence
 This is free and unencumbered software released into the public domain.
